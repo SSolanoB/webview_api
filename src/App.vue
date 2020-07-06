@@ -2,7 +2,10 @@
   <div id="app">
     <div>
       <b-navbar toggleable="lg" type="dark" variant="info">
-        <b-navbar-brand to="/">Domain Finder</b-navbar-brand>
+        <b-navbar-brand to="/">
+          <img alt="Domain logo" id="main-logo" class="d-inline-block align-middle" src="./assets/browser.svg">
+          Domain search
+        </b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -38,5 +41,9 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+#main-logo {
+  width: 40px;
 }
 </style>
