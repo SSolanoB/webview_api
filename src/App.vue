@@ -11,8 +11,8 @@
 
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav class="ml-auto">
-            <b-nav-item href="#">Search a domain</b-nav-item>
-            <b-nav-item href="#">Get all domains</b-nav-item>
+            <b-nav-item to="/search">Search a domain</b-nav-item>
+            <b-nav-item to="/domains">Get all domains</b-nav-item>
           </b-navbar-nav>
         </b-collapse>
       </b-navbar>

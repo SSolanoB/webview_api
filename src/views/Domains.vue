@@ -1,26 +1,11 @@
 <template>
-  <div class="home-component">
-    <h1>{{ msg }}</h1>
+  <div class="domains">
+    <h1>List of all domains searched by customers</h1>
     <p>
       In the links bellow you can find our two services! Go ahead and try them.
     </p>
     <b-container class="bv-row">
       <b-row>
-        <b-col>
-          <b-card tag="article" style="max-width: 20rem;" class="mb-1">
-            <img alt="Domain logo" style="width:60px" class="card-img-top" src="../assets/language-24px.svg">
-            <b-card-body>
-              <b-card-title>
-                Find domains
-              </b-card-title>
-              <b-card-text>
-                Our API will retrieve information about a specific domain.
-              </b-card-text>
-
-              <b-button to="/search" variant="outline-success">Specific domain!</b-button>
-            </b-card-body>
-          </b-card>
-        </b-col>
         <b-col>
           <b-card tag="article" style="max-width: 20rem;" class="mb-2">
             <img alt="Domain logo" style="width:60px" class="card-img-top" src="../assets/history-24px.svg">
@@ -41,15 +26,6 @@
     
   </div>
 </template>
-
-<script>
-export default {
-  name: 'HomeComponent',
-  props: {
-    msg: String
-  }
-}
-</script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
