@@ -87,4 +87,12 @@ li {
 .card {
   margin: 0 auto;
 }
+.list-group {
+  flex-direction: row;
+  justify-content: center;
+}
+.list-group-item {
+  border-top-width: 1px !important;
+  margin-bottom: 2px;
+}
 </style>
