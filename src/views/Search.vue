@@ -37,19 +37,45 @@
                 <b-button type="submit" style="margin-right: 5px" variant="primary">Go!</b-button>
                 <b-button type="reset" variant="danger">Reset</b-button>
               </b-form>
-              <b-card class="mt-3" header="Form Data Result">
-                <pre class="m-0">{{ form }}</pre>
+              <b-card class="mt-3" header="Server results">
+                <b-table responsive striped hover :items="servers"></b-table>
               </b-card>
 
+              <b-card class="mt-3" header="Additional information">
+                <b-table-simple id="SimpleTable" hover responsive style="visibility: hidden">
+                  <b-tbody>
+                    <b-tr>
+                      <b-th class="text-center">Servers changed</b-th>
+                      <b-td>{{servers_changed}}</b-td>
+                    </b-tr>
+                    <b-tr>
+                      <b-th class="text-center">SSL grade</b-th>
+                      <b-td>{{ssl_grade}}</b-td>
+                    </b-tr>
+                    <b-tr>
+                      <b-th class="text-center">Previous SSL grade</b-th>
+                      <b-td>{{previous_ssl_grade}}</b-td>
+                    </b-tr>
+                    <b-tr>
+                      <b-th class="text-center">Logo</b-th>
+                      <b-td>
+                        <img id="DomainLogo" style="width:60px" class="card-img-top" src="">
+                      </b-td>
+                    </b-tr>
+                    <b-tr>
+                      <b-th class="text-center">Title</b-th>
+                      <b-td>{{title}}</b-td>
+                    </b-tr>
+                    <b-tr>
+                      <b-th class="text-center">Is down</b-th>
+                      <b-td>{{is_down}}</b-td>
+                    </b-tr>
+                  </b-tbody>
+                </b-table-simple>
+              </b-card>
 
-              <ul class="list-group row" v-if="domains && domains.length">
-                <li class="list-group-item col-xs-6 col-sm-4 col-md-3" v-for="domain of domains" v-bind:key="domain.id">
-                  <p>{{domain.domain}}</p>
-                </li>
-              </ul>
-
-              <ul class="list-group row" v-if="errors_d && errors_d.length">
-                <li class="list-group-item col-xs-6 col-sm-4 col-md-3" v-for="error_d of errors_d" v-bind:key="error_d.id">
+              <ul class="list-group row" v-if="errors && errors.length">
+                <li class="list-group-item col-xs-6 col-sm-4 col-md-3" v-for="error of errors" v-bind:key="error.id">
                   <p>{{error.message}}</p>
                 </li>
               </ul>
