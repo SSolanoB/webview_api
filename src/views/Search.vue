@@ -68,12 +68,18 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      domains: [],
-      errors_d: [],
+      errors: [],
       form: {
         domain: ''
       },
-      show: true
+      show: true,
+      servers: [],
+      servers_changed: '',
+      ssl_grade: '',
+      previous_ssl_grade: '',
+      logo: '',
+      title: '',
+      is_down: ''
     }
   },
 
@@ -81,17 +87,23 @@ export default {
     onSubmit(evt) {
       evt.preventDefault()
       alert(JSON.stringify(this.form))
-      console.log('HERE')
       var base_url = "http://localhost:3000/domain?name="
       var domain = this.form.domain
       var url = base_url.concat(domain)
       axios.get(url)
       .then(response => {
-        this.domain = response.data
-        console.log(this.domain)
+        this.servers = response.data.servers
+        this.servers_changed = response.data.servers_changed
+        this.ssl_grade = response.data.ssl_grade
+        this.previous_ssl_grade = response.data.previous_ssl_grade
+        this.logo = response.data.logo
+        this.title = response.data.title
+        this.is_down = response.data.is_down
+        document.getElementById('DomainLogo').src = this.logo;
+        document.getElementById('SimpleTable').style.visibility = "visible";
       })
-      .catch(e_d => {
-        this.errors_d.push(e_d)
+      .catch(e => {
+        this.errors.push(e)
       })
     },
     onReset(evt) {
