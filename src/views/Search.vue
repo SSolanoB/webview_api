@@ -99,6 +99,7 @@ export default {
         domain: ''
       },
       show: true,
+      show_result: false,
       servers: [],
       servers_changed: '',
       ssl_grade: '',
@@ -125,8 +126,7 @@ export default {
         this.logo = response.data.logo
         this.title = response.data.title
         this.is_down = response.data.is_down
-        document.getElementById('DomainLogo').src = this.logo;
-        document.getElementById('SimpleTable').style.visibility = "visible";
+        this.show_result = true
       })
       .catch(e => {
         this.errors.push(e)
