@@ -39,7 +39,7 @@ export default {
   data() {
     return {
       domains: [],
-      errors_d: []
+      errors: []
     }
   },
 
@@ -52,7 +52,8 @@ export default {
       console.log(this.domains)
     })
     .catch(e_d => {
-      this.errors_d.push(e_d)
+      this.errors.push(e_d)
+      console.log(this.errors)
     })
 
     // async / await version (created() becomes async created())
