@@ -141,7 +141,16 @@ export default {
     onReset(evt) {
       evt.preventDefault()
       this.form.domain = ''
+      this.errors = []
+      this.servers = []
+      this.servers_changed = ''
+      this.ssl_grade = ''
+      this.previous_ssl_grade = ''
+      this.logo = ''
+      this.title = ''
+      this.is_down = ''
       this.show = false
+      this.show_result = false
       this.$nextTick(() => {
         this.show = true
       })
