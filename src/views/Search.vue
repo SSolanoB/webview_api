@@ -120,6 +120,15 @@ export default {
     onSubmit(evt) {
       evt.preventDefault()
       alert(JSON.stringify(this.form))
+      this.errors = []
+      this.servers = []
+      this.servers_changed = ''
+      this.ssl_grade = ''
+      this.previous_ssl_grade = ''
+      this.logo = ''
+      this.title = ''
+      this.is_down = ''
+      this.show_result = false
       var base_url = "http://localhost:3000/domain?name="
       var domain = this.form.domain
       var url = base_url.concat(domain)
