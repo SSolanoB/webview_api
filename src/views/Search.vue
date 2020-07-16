@@ -37,49 +37,55 @@
                 <b-button type="submit" style="margin-right: 5px" variant="primary">Go!</b-button>
                 <b-button type="reset" variant="danger">Reset</b-button>
               </b-form>
-              <b-card class="mt-3" header="Server results">
-                <b-table responsive striped hover :items="servers"></b-table>
-              </b-card>
 
-              <b-card class="mt-3" header="Additional information">
-                <b-table-simple id="SimpleTable" hover responsive style="visibility: hidden">
-                  <b-tbody>
-                    <b-tr>
-                      <b-th class="text-center">Servers changed</b-th>
-                      <b-td>{{servers_changed}}</b-td>
-                    </b-tr>
-                    <b-tr>
-                      <b-th class="text-center">SSL grade</b-th>
-                      <b-td>{{ssl_grade}}</b-td>
-                    </b-tr>
-                    <b-tr>
-                      <b-th class="text-center">Previous SSL grade</b-th>
-                      <b-td>{{previous_ssl_grade}}</b-td>
-                    </b-tr>
-                    <b-tr>
-                      <b-th class="text-center">Logo</b-th>
-                      <b-td>
-                        <img id="DomainLogo" style="width:60px" class="card-img-top" src="">
-                      </b-td>
-                    </b-tr>
-                    <b-tr>
-                      <b-th class="text-center">Title</b-th>
-                      <b-td>{{title}}</b-td>
-                    </b-tr>
-                    <b-tr>
-                      <b-th class="text-center">Is down</b-th>
-                      <b-td>{{is_down}}</b-td>
-                    </b-tr>
-                  </b-tbody>
-                </b-table-simple>
-              </b-card>
+              <div v-if="errors && errors.length > 0">
+                <br>
+                <ul class="list-group row" v-if="errors && errors.length">
+                  <li class="list-group-item col-xs-6 col-sm-4 col-md-3" v-for="error of errors" v-bind:key="error.id">
+                    <p>{{error.response.data}}</p>
+                  </li>
+                </ul>
+                <br>
+              </div>
 
-              <ul class="list-group row" v-if="errors && errors.length">
-                <li class="list-group-item col-xs-6 col-sm-4 col-md-3" v-for="error of errors" v-bind:key="error.id">
-                  <p>{{error.message}}</p>
-                </li>
-              </ul>
-              <br>
+              <div id="SimpleTable" v-if="show_result">
+                <b-card class="mt-3" header="Server results">
+                  <b-table responsive striped hover :items="servers"></b-table>
+                </b-card>
+
+                <b-card class="mt-3" header="Additional information">
+                  <b-table-simple hover responsive>
+                    <b-tbody>
+                      <b-tr>
+                        <b-th class="text-center">Servers changed</b-th>
+                        <b-td>{{servers_changed}}</b-td>
+                      </b-tr>
+                      <b-tr>
+                        <b-th class="text-center">SSL grade</b-th>
+                        <b-td>{{ssl_grade}}</b-td>
+                      </b-tr>
+                      <b-tr>
+                        <b-th class="text-center">Previous SSL grade</b-th>
+                        <b-td>{{previous_ssl_grade}}</b-td>
+                      </b-tr>
+                      <b-tr>
+                        <b-th class="text-center">Logo</b-th>
+                        <b-td>
+                          <img id="DomainLogo" style="width:60px" class="card-img-top" src="logo">
+                        </b-td>
+                      </b-tr>
+                      <b-tr>
+                        <b-th class="text-center">Title</b-th>
+                        <b-td>{{title}}</b-td>
+                      </b-tr>
+                      <b-tr>
+                        <b-th class="text-center">Is down</b-th>
+                        <b-td>{{is_down}}</b-td>
+                      </b-tr>
+                    </b-tbody>
+                  </b-table-simple>
+                </b-card>
+              </div>
             </b-card-body>
           </b-card>
         </b-col>
