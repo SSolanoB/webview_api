@@ -50,7 +50,9 @@
 
               <div id="SimpleTable" v-if="show_result">
                 <b-card class="mt-3" header="Server results">
-                  <b-table responsive striped hover :items="servers"></b-table>
+                  <div v-if="servers && servers.length > 0">
+                    <b-table responsive striped hover :items="servers"></b-table>  
+                  </div>
                 </b-card>
 
                 <b-card class="mt-3" header="Additional information">
