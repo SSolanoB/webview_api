@@ -16,10 +16,19 @@
               <b-card-text>
                 This will give you all the domains that have been requested through our API.
               </b-card-text>
-
-              <ul class="list-group row" v-if="domains && domains.length">
-                <li class="list-group-item col-xs-6 col-sm-4 col-md-3" v-for="domain of domains" v-bind:key="domain.id">
-                  <p>{{domain.domain}}</p>
+              <div v-if="domains && domains.length > 0">
+                <ul class="list-group row" v-if="domains && domains.length">
+                  <li class="list-group-item col-xs-6 col-sm-4 col-md-3" v-for="domain of domains" v-bind:key="domain.id">
+                    <p>{{domain.domain}}</p>
+                  </li>
+                </ul>
+              </div>
+              <div v-else-if="domains == null && errors.length == 0">
+                Any domains yet! 
+              </div>
+              <ul class="list-group row" v-if="errors && errors.length">
+                <li class="list-group-item col-xs-6 col-sm-4 col-md-3" v-for="error of errors" v-bind:key="error.id">
+                  <p>{{error.response.data}}</p>
                 </li>
               </ul>
               <br>
