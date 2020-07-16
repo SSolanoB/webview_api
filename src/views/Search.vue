@@ -71,7 +71,7 @@
                       <b-tr>
                         <b-th class="text-center">Logo</b-th>
                         <b-td>
-                          <img id="DomainLogo" style="width:60px" class="card-img-top" src="logo">
+                          <img id="DomainLogo" style="width:60px" class="card-img-top" :src="logo">
                         </b-td>
                       </b-tr>
                       <b-tr>
